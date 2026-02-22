@@ -1,4 +1,5 @@
 import gleam/option
+import showcase/b
 import showcase/bezier
 import showcase/catmull_rom
 import tiramisu
@@ -27,6 +28,7 @@ pub fn main() {
 }
 
 pub type Model {
+  BSpline
   Bezier
   CatmullRom
 }
@@ -51,8 +53,9 @@ fn update(model: Model, msg: Msg, ctx: tiramisu.Context) {
     }
     Next -> {
       let model = case model {
-        Bezier -> CatmullRom
+        Bezier -> BSpline
         CatmullRom -> Bezier
+        BSpline -> CatmullRom
       }
       #(model, effect.none(), option.None)
     }
@@ -76,6 +79,7 @@ fn view(model: Model, _ctx: tiramisu.Context) {
   let curves = case model {
     Bezier -> bezier.showcase()
     CatmullRom -> catmull_rom.showcase()
+    BSpline -> b.showcase()
   }
 
   scene.empty(id: "root", transform: transform.identity, children: [

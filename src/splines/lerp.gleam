@@ -4,9 +4,8 @@
 //// This module generalizes lerp into multiple dimensions and provides example lerp functions for 1D, 2D, and 3D domains.
 
 import gleam/float
-import splines.{type Vec2f, type Vec3f}
-import vec/vec2f
-import vec/vec3f
+import vec/vec2f.{type Vec2f}
+import vec/vec3f.{type Vec3f}
 
 /// The type of a function that can linearly-interpolate over a domain `a`.
 pub type Interpolator(a) =
