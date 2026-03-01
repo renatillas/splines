@@ -11,7 +11,7 @@ repository = { type = "github", user = "seancribbs", repo = "splines" }
 [dependencies]
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"
 vec = ">= 3.2.0 and < 4.0.0"
-matx = { path = "../matx" }
+matrix_gleam = { path = "../matrix_gleam" }
 
 [dev-dependencies]
 gleeunit = ">= 1.0.0 and < 2.0.0"
